@@ -13,7 +13,7 @@ const projects = [
       "Cross-browser compatibility testing",
     ],
     tags: ["Cypress", "API Testing", "Automation"],
-    tagColor: "bg-primary bg-opacity-10 text-primary"
+    tagColor: "bg-primary text-white"
   },
   {
     title: "Shopbae Mobile App",
@@ -27,7 +27,7 @@ const projects = [
       "User journey and usability testing",
     ],
     tags: ["Mobile", "TestFlight", "E-commerce"],
-    tagColor: "bg-accent bg-opacity-10 text-accent"
+    tagColor: "bg-accent text-white"
   },
   {
     title: "Farm Data Analytical System",
@@ -41,7 +41,7 @@ const projects = [
       "UI/UX validation and accessibility testing",
     ],
     tags: ["Android", "Manual Testing", "Performance"],
-    tagColor: "bg-secondary bg-opacity-10 text-secondary"
+    tagColor: "bg-secondary text-white"
   },
 ];
 

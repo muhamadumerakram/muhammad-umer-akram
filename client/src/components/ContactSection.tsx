@@ -38,7 +38,7 @@ const contactInfo = [
 
 const socialLinks = [
   { icon: "fab fa-linkedin", href: "https://linkedin.com/in/muhammad-umer-akram", color: "hover:bg-blue-600", name: "LinkedIn" },
-  { icon: "fab fa-instagram", href: "https://instagram.com/umer_akram", color: "hover:bg-pink-500", name: "Instagram" },
+  { icon: "fab fa-instagram", href: "https://instagram.com/yours_umer", color: "hover:bg-pink-500", name: "Instagram" },
   // Future social links can be added here:
   // { icon: "fab fa-github", href: "#", color: "hover:bg-gray-700", name: "GitHub" },
   // { icon: "fab fa-twitter", href: "#", color: "hover:bg-blue-400", name: "Twitter" },
@@ -60,22 +60,20 @@ export default function ContactSection() {
       // Save to backend storage
       const response = await apiRequest("POST", "/api/contact", data);
       
-      // Send email notification using a simple approach
+      // Send email notification using FormSubmit
       try {
-        // Using FormSubmit service for simple form-to-email
+        const formData = new FormData();
+        formData.append('name', data.name);
+        formData.append('email', data.email);
+        formData.append('phone', data.phone);
+        formData.append('subject', `Portfolio Contact: ${data.subject}`);
+        formData.append('message', `From: ${data.name} (${data.email})\nPhone: ${data.phone}\n\nSubject: ${data.subject}\n\nMessage:\n${data.message}`);
+        formData.append('_next', window.location.href);
+        formData.append('_captcha', 'false');
+        
         const emailResponse = await fetch('https://formsubmit.co/umerchaudhary2831@gmail.com', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: data.name,
-            email: data.email,
-            subject: `Portfolio Contact: ${data.subject}`,
-            message: `From: ${data.name} (${data.email})\nPhone: ${data.phone}\n\nSubject: ${data.subject}\n\nMessage:\n${data.message}`,
-            _next: window.location.href, // Redirect back to portfolio
-            _captcha: false // Disable captcha for API usage
-          })
+          body: formData
         });
         
         console.log('Email sent via FormSubmit');
@@ -83,7 +81,7 @@ export default function ContactSection() {
         console.log('FormSubmit failed, trying mailto fallback');
         // Fallback to mailto
         const subject = encodeURIComponent(`Portfolio Contact: ${data.subject}`);
-        const body = encodeURIComponent(`From: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
+        const body = encodeURIComponent(`From: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\n\nMessage:\n${data.message}`);
         window.open(`mailto:umerchaudhary2831@gmail.com?subject=${subject}&body=${body}`);
       }
       

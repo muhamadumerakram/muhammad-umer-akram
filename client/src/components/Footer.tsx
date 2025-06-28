@@ -35,7 +35,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-dark via-gray-900 to-primary text-white py-16 relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-dark via-gray-900 to-primary text-white py-12 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-32 h-32 border border-white rounded-full"></div>
@@ -52,10 +52,10 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             className="md:col-span-2"
           >
-            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+            <h3 className="text-3xl font-bold mb-3 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
               Muhammad Umer Akram
             </h3>
-            <p className="text-gray-300 leading-relaxed mb-6 text-lg">
+            <p className="text-gray-300 leading-relaxed mb-4 text-lg">
               Quality Assurance Engineer passionate about delivering exceptional software quality 
               through innovative testing solutions and automation frameworks.
             </p>
@@ -122,7 +122,7 @@ export default function Footer() {
         </div>
         
         <motion.div 
-          className="border-t border-gray-600 border-opacity-30 mt-12 pt-8 text-center"
+          className="border-t border-gray-600 border-opacity-30 mt-8 pt-6 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -139,8 +139,8 @@ export default function Footer() {
               </span>
               <span className="hidden md:block">|</span>
               <span className="flex items-center">
-                <i className="fas fa-code text-blue-400 mr-1"></i>
-                React & TypeScript
+                <i className="fas fa-cog text-blue-400 mr-1"></i>
+                Automation Engineer
               </span>
             </div>
           </div>
