@@ -21,6 +21,7 @@ const services = [
 
 export default function Footer() {
   const [isCertificateModalOpen, setIsCertificateModalOpen] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
@@ -75,15 +76,94 @@ export default function Footer() {
               through innovative testing solutions and automation frameworks.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <motion.button 
-                onClick={handleDownloadResume}
-                className="bg-accent hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold transition-all hover-lift flex items-center justify-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <i className="fas fa-download mr-2"></i>
-                Download Resume
-              </motion.button>
+              <Dialog open={isResumeModalOpen} onOpenChange={setIsResumeModalOpen}>
+                <DialogTrigger asChild>
+                  <motion.button 
+                    className="bg-accent hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold transition-all hover-lift flex items-center justify-center"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <i className="fas fa-file-pdf mr-2"></i>
+                    View Resume
+                  </motion.button>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle className="text-xl font-bold">Muhammad Umer Akram - QA Engineer Resume</DialogTitle>
+                  </DialogHeader>
+                  <div className="mt-4">
+                    <div className="bg-gradient-to-br from-orange-50 to-red-100 p-6 rounded-lg border border-orange-200">
+                      <div className="text-center mb-4">
+                        <i className="fas fa-file-pdf text-4xl text-orange-600 mb-3"></i>
+                        <h3 className="text-2xl font-bold text-gray-800">Professional Resume</h3>
+                        <p className="text-lg text-gray-600 mt-2">Software Quality Assurance Engineer</p>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-md shadow-sm mb-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">Professional Summary</h4>
+                        <p className="text-gray-700">Software Quality Assurance Engineer with 2+ years of experience in manual and automated testing. Expertise in test case development, API testing, and automation frameworks. Passionate about delivering high-quality software solutions.</p>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-md shadow-sm mb-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">Key Skills & Technologies</h4>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+                          <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">Manual Testing</span>
+                          <span className="bg-green-100 text-green-800 px-2 py-1 rounded">Test Automation</span>
+                          <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded">API Testing</span>
+                          <span className="bg-indigo-100 text-indigo-800 px-2 py-1 rounded">Cypress</span>
+                          <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Playwright</span>
+                          <span className="bg-red-100 text-red-800 px-2 py-1 rounded">Postman</span>
+                          <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded">Test Planning</span>
+                          <span className="bg-pink-100 text-pink-800 px-2 py-1 rounded">Bug Tracking</span>
+                          <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded">JIRA</span>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-md shadow-sm mb-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">Professional Experience</h4>
+                        <div className="space-y-3">
+                          <div>
+                            <p className="font-medium text-gray-800">Quality Assurance Engineer</p>
+                            <p className="text-sm text-gray-600">MailMunch • 2022 - Present</p>
+                            <p className="text-sm text-gray-700 mt-1">Led comprehensive testing of email marketing platform, implemented automated testing frameworks, and improved overall product quality.</p>
+                          </div>
+                          <div>
+                            <p className="font-medium text-gray-800">QA Specialist</p>
+                            <p className="text-sm text-gray-600">Shopbae • 2021 - 2022</p>
+                            <p className="text-sm text-gray-700 mt-1">Conducted mobile application testing, payment gateway testing, and user experience validation for e-commerce platform.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-md shadow-sm mb-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">Education & Certifications</h4>
+                        <div className="space-y-2">
+                          <div>
+                            <p className="font-medium text-gray-800">Bachelor's in Computer Science</p>
+                            <p className="text-sm text-gray-600">University • 2018 - 2022</p>
+                          </div>
+                          <div>
+                            <p className="font-medium text-gray-800">Microsoft Learn - Playwright Certification</p>
+                            <p className="text-sm text-gray-600">2024 • End-to-End Testing</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-center mt-6">
+                        <motion.button 
+                          onClick={handleDownloadResume}
+                          className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-full font-semibold transition-all flex items-center"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <i className="fas fa-download mr-2"></i>
+                          Download Resume PDF
+                        </motion.button>
+                      </div>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
               
               <Dialog open={isCertificateModalOpen} onOpenChange={setIsCertificateModalOpen}>
                 <DialogTrigger asChild>
