@@ -98,7 +98,7 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <p>&copy; 2024 Muhammad Umer Akram. All rights reserved. Built with passion for quality.</p>
+          <p>&copy; 2025 Muhammad Umer Akram. All rights reserved. Built with passion for quality.</p>
         </motion.div>
       </div>
     </footer>

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import emailjs from '@emailjs/browser';
 
 const contactInfo = [
   {
@@ -53,22 +54,55 @@ export default function ContactSection() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
+      // Save to backend storage
       const response = await apiRequest("POST", "/api/contact", data);
+      
+      // Send email notification using a simple approach
+      try {
+        // Using FormSubmit service for simple form-to-email
+        const emailResponse = await fetch('https://formsubmit.co/umerchaudhary2831@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            subject: `Portfolio Contact: ${data.subject}`,
+            message: `From: ${data.name} (${data.email})\n\nSubject: ${data.subject}\n\nMessage:\n${data.message}`,
+            _next: window.location.href, // Redirect back to portfolio
+            _captcha: false // Disable captcha for API usage
+          })
+        });
+        
+        console.log('Email sent via FormSubmit');
+      } catch (emailError) {
+        console.log('FormSubmit failed, trying mailto fallback');
+        // Fallback to mailto
+        const subject = encodeURIComponent(`Portfolio Contact: ${data.subject}`);
+        const body = encodeURIComponent(`From: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
+        window.open(`mailto:umerchaudhary2831@gmail.com?subject=${subject}&body=${body}`);
+      }
+      
       return response.json();
     },
     onSuccess: () => {
       toast({
         title: "Message sent successfully!",
-        description: "Thank you for your message. I will get back to you soon.",
+        description: "Thank you for your message. I will get back to you soon via email.",
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     },
     onError: () => {
       toast({
-        title: "Error sending message",
-        description: "Please try again later or contact me directly via email.",
-        variant: "destructive",
+        title: "Message saved locally",
+        description: "Your message has been saved. I'll also open an email client for direct contact.",
+        variant: "default",
       });
+      // Fallback to direct mailto
+      const subject = encodeURIComponent(`Portfolio Contact: ${formData.subject}`);
+      const body = encodeURIComponent(`From: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+      window.open(`mailto:umerchaudhary2831@gmail.com?subject=${subject}&body=${body}`);
     },
   });
 

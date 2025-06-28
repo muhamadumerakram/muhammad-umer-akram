@@ -106,8 +106,21 @@ This is a modern, professional portfolio website for Muhammad Umer Akram, a Soft
 
 ```
 Changelog:
-- June 28, 2025. Initial setup
+- June 28, 2025. Initial setup with complete portfolio
+- June 28, 2025. Added profile picture upload functionality
+- June 28, 2025. Implemented resume download feature
+- June 28, 2025. Added FormSubmit email service for contact form
+- June 28, 2025. Updated copyright to 2025
 ```
+
+## Domain Configuration
+
+The portfolio is currently accessible via the Replit development URL. To use the custom domain `muhammad-umer-akram.com`:
+
+1. Purchase and configure the domain with a domain registrar
+2. Set up DNS records to point to the Replit deployment
+3. Configure the custom domain in Replit Deployments settings
+4. Update any absolute URLs in the application to use the custom domain
 
 ## User Preferences
 
