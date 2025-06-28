@@ -1,0 +1,136 @@
+Core Request
+Create a modern, professional portfolio website for Muhammad Umer Akram, a Software Quality Assurance Engineer with 2+ years of experience specializing in test automation, API testing, and comprehensive QA processes.
+Personal Information
+
+Name: Muhammad Umer Akram
+Role: Software Quality Assurance Engineer
+Location: Lahore, Punjab, Pakistan
+Email: umerchaudhary2831@gmail.com
+Phone: +923087397486
+Experience: 2+ years at MailMunch (Dec 2022 - Present)
+Education: BS Computer Science, MNS University of Agriculture, Multan (CGPA: 3.31)
+
+Design Requirements
+Color Scheme
+
+Primary: Deep blue (#1e3a8a) or tech blue (#0066cc) - representing trust and professionalism
+Secondary: Emerald green (#10b981) or success green (#22c55e) - representing quality and testing success
+Accent: Orange (#f97316) or gold (#eab308) - for highlights and CTAs
+Background: Clean whites (#ffffff) with subtle grays (#f8fafc, #e2e8f0)
+Text: Dark charcoal (#1f2937) for readability
+
+Visual Elements
+
+Modern glassmorphism effects
+Subtle gradients and shadows
+Professional tech-themed illustrations
+Icons representing testing tools (Cypress, Postman, JIRA, etc.)
+Animated elements like floating particles or subtle hover effects
+Code snippets or terminal-style sections
+Testing flowcharts or quality assurance graphics
+
+Sections to Include
+1. Hero Section
+
+Professional headshot placeholder or tech avatar
+Compelling headline: "Quality Assurance Engineer | Test Automation Specialist"
+Brief tagline about ensuring software excellence
+Call-to-action buttons (Download Resume, Contact Me)
+Background: Animated tech pattern or gradient
+
+2. About Me
+
+Professional summary highlighting QA expertise
+Key personality traits: analytical, detail-oriented, collaborative
+Years of experience and specializations
+Personal mission statement about software quality
+
+3. Skills & Expertise
+Visual skill bars or interactive cards for:
+
+Testing Types: Manual Testing, Automation Testing, API Testing, Mobile Testing
+Tools: Cypress, Postman, JIRA, MySQL, GitHub Actions, Confluence
+Technologies: JavaScript, SQL, Docker, Linux Scripting
+Soft Skills: Critical Thinking, Problem Solving, Communication, Documentation
+
+4. Professional Experience
+MailMunch (Current Role)
+
+Interactive timeline or card layout
+Key achievements with metrics (95% bug detection rate, 70% reduced testing time)
+Specific responsibilities with visual icons
+Technologies used with badges
+
+5. Projects Showcase
+Interactive project cards featuring:
+
+Farm Data Analytical System (Android)
+Web Testing Projects: MailMunch, Appflows, The Funnel HQ, etc.
+Mobile Testing: Shopbae App testing details
+Each with brief description, technologies used, and testing approaches
+
+6. Automation Framework
+Dedicated section highlighting:
+
+Cypress test framework with POM architecture
+20+ test suites, 100+ test cases
+GitHub Actions integration
+AWS integration for reporting
+Code snippets or architecture diagrams
+
+7. Certifications & Learning
+
+Microsoft Playwright certification
+Professional development modules
+Visual certificate badges
+Continuous learning commitment
+
+8. Tools & Technologies
+Interactive grid or carousel of tools:
+
+Testing: Cypress, Postman, TestFlight
+Development: VS Code, GitHub Desktop
+Database: MySQL, Postico
+Collaboration: JIRA, Confluence, Slack
+Other: Docker, Loom, Command Line
+
+9. Contact Section
+
+Contact form with validation
+Social links (LinkedIn, GitHub)
+Location map or Pakistan flag
+Professional email and phone
+Availability status
+
+Technical Features to Request
+
+Fully responsive design (mobile-first)
+Smooth scrolling and animations
+Interactive elements and hover effects
+Fast loading times
+SEO optimized
+Clean, semantic HTML structure
+Modern CSS with Flexbox/Grid
+JavaScript for interactivity
+Contact form functionality
+Progressive web app features (optional)
+
+Content Tone
+
+Professional yet approachable
+Confident but not boastful
+Technical accuracy
+Results-oriented language
+Clear and concise messaging
+
+Call-to-Action Strategy
+
+"Download Resume" button in hero
+"View Projects" throughout portfolio
+"Let's Connect" in contact section
+"Hire Me" for freelance opportunities
+
+Inspiration Keywords
+Include elements inspired by: modern SaaS websites, tech portfolios, quality assurance themes, Pakistani tech professionals, blue-green color psychology, testing automation aesthetics.
+
+Final Note: The website should reflect a senior QA professional who understands both manual and automated testing, works with modern tools, and delivers measurable results. Emphasize the transition from manual testing to automation expertise and the impact on business outcomes.
