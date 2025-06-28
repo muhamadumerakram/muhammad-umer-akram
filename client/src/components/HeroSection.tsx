@@ -16,66 +16,14 @@ export default function HeroSection() {
   };
 
   const handleDownloadResume = () => {
-    // Create a downloadable resume PDF
-    const resumeContent = `
-Muhammad Umer Akram
-Quality Assurance Engineer | Test Automation Specialist
-
-Contact Information:
-Email: umerchaudhary2831@gmail.com
-Phone: +923087397486
-Location: Lahore, Punjab, Pakistan
-
-Professional Summary:
-Dedicated Software Quality Assurance Engineer with 2+ years of experience at MailMunch, 
-specializing in test automation, API testing, and comprehensive QA processes.
-
-Education:
-BS Computer Science
-MNS University of Agriculture, Multan
-CGPA: 3.31
-
-Professional Experience:
-Software Quality Assurance Engineer | MailMunch | Dec 2022 - Present
-• Developed comprehensive test automation frameworks
-• Conducted thorough API testing using Postman
-• Implemented CI/CD testing with GitHub Actions
-• Managed bug tracking and reporting in JIRA
-• Achieved 95% bug detection rate
-• Reduced testing time by 70%
-
-Key Skills:
-• Manual Testing (95%)
-• Automation Testing (90%)
-• API Testing (88%)
-• Mobile Testing (85%)
-• Cypress, Postman, JIRA, MySQL
-• GitHub Actions, Confluence
-
-Certifications:
-• Microsoft Playwright - End-to-end testing automation
-
-Projects:
-• Farm Data Analytical System (Android Testing)
-• MailMunch Platform (Web Testing)
-• Shopbae Mobile App (Mobile Testing)
-
-Automation Framework:
-• 20+ Test Suites with POM architecture
-• 100+ Automated Test Cases
-• GitHub Actions CI/CD integration
-• AWS integration for reporting
-    `;
-
-    const blob = new Blob([resumeContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Muhammad_Umer_Akram_Resume.txt';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Download the actual PDF resume
+    const link = document.createElement('a');
+    link.href = '/assets/resume.pdf'; // We'll place the PDF in public assets
+    link.download = 'Muhammad_Umer_Akram_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleContactClick = () => {

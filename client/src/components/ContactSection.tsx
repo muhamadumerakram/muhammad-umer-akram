@@ -37,15 +37,18 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { icon: "fab fa-linkedin", href: "#", color: "hover:bg-blue-600" },
-  { icon: "fab fa-github", href: "#", color: "hover:bg-gray-700" },
-  { icon: "fab fa-twitter", href: "#", color: "hover:bg-blue-400" },
+  { icon: "fab fa-linkedin", href: "https://linkedin.com/in/muhammad-umer-akram", color: "hover:bg-blue-600", name: "LinkedIn" },
+  { icon: "fab fa-instagram", href: "https://instagram.com/umer_akram", color: "hover:bg-pink-500", name: "Instagram" },
+  // Future social links can be added here:
+  // { icon: "fab fa-github", href: "#", color: "hover:bg-gray-700", name: "GitHub" },
+  // { icon: "fab fa-twitter", href: "#", color: "hover:bg-blue-400", name: "Twitter" },
 ];
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   });
@@ -69,7 +72,7 @@ export default function ContactSection() {
             name: data.name,
             email: data.email,
             subject: `Portfolio Contact: ${data.subject}`,
-            message: `From: ${data.name} (${data.email})\n\nSubject: ${data.subject}\n\nMessage:\n${data.message}`,
+            message: `From: ${data.name} (${data.email})\nPhone: ${data.phone}\n\nSubject: ${data.subject}\n\nMessage:\n${data.message}`,
             _next: window.location.href, // Redirect back to portfolio
             _captcha: false // Disable captcha for API usage
           })
@@ -91,7 +94,7 @@ export default function ContactSection() {
         title: "Message sent successfully!",
         description: "Thank you for your message. I will get back to you soon via email.",
       });
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     },
     onError: () => {
       toast({
@@ -108,10 +111,10 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.subject || !formData.message) {
       toast({
         title: "Please fill in all fields",
-        description: "All fields are required to send your message.",
+        description: "All fields including phone number are required to send your message.",
         variant: "destructive",
       });
       return;
@@ -240,6 +243,22 @@ export default function ContactSection() {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                   placeholder="your.email@example.com"
+                  required
+                />
+              </div>
+              
+              <div>
+                <Label htmlFor="phone" className="block text-white font-semibold mb-2">
+                  Phone Number
+                </Label>
+                <Input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                  placeholder="+923087397486"
                   required
                 />
               </div>

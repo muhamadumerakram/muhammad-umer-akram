@@ -2,20 +2,6 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Farm Data Analytical System",
-    category: "Android Testing",
-    icon: "fas fa-seedling",
-    color: "from-secondary to-green-600",
-    description: "Comprehensive testing of agricultural data management system focusing on data accuracy, user experience, and performance optimization across Android devices.",
-    approaches: [
-      "Functional testing across multiple Android versions",
-      "Performance testing with large datasets",
-      "UI/UX validation and accessibility testing",
-    ],
-    tags: ["Android", "Manual Testing", "Performance"],
-    tagColor: "bg-secondary bg-opacity-10 text-secondary"
-  },
-  {
     title: "MailMunch Platform",
     category: "Web Testing",
     icon: "fas fa-envelope",
@@ -42,6 +28,20 @@ const projects = [
     ],
     tags: ["Mobile", "TestFlight", "E-commerce"],
     tagColor: "bg-accent bg-opacity-10 text-accent"
+  },
+  {
+    title: "Farm Data Analytical System",
+    category: "Android Testing",
+    icon: "fas fa-seedling",
+    color: "from-secondary to-green-600",
+    description: "Comprehensive testing of agricultural data management system focusing on data accuracy, user experience, and performance optimization across Android devices.",
+    approaches: [
+      "Functional testing across multiple Android versions",
+      "Performance testing with large datasets",
+      "UI/UX validation and accessibility testing",
+    ],
+    tags: ["Android", "Manual Testing", "Performance"],
+    tagColor: "bg-secondary bg-opacity-10 text-secondary"
   },
 ];
 
@@ -90,10 +90,11 @@ export default function ProjectsSection() {
                 </p>
                 <div className="mb-4">
                   <h4 className="font-semibold text-dark mb-2">Testing Approaches:</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
+                  <ul className="text-sm text-gray-700 space-y-1">
                     {project.approaches.map((approach, approachIndex) => (
                       <motion.li
                         key={approachIndex}
+                        className="text-gray-700 font-medium"
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}

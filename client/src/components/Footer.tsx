@@ -24,21 +24,50 @@ export default function Footer() {
     }
   };
 
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/assets/resume.pdf';
+    link.download = 'Muhammad_Umer_Akram_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <footer className="bg-dark text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8">
+    <footer className="bg-gradient-to-br from-dark via-gray-900 to-primary text-white py-16 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-10 left-10 w-32 h-32 border border-white rounded-full"></div>
+        <div className="absolute bottom-20 right-20 w-24 h-24 border border-white rounded-full"></div>
+        <div className="absolute top-1/2 left-1/3 w-16 h-16 border border-white rounded-full"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid md:grid-cols-3 gap-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="md:col-span-2"
           >
-            <h3 className="text-xl font-bold mb-4">Muhammad Umer Akram</h3>
-            <p className="text-gray-400 leading-relaxed">
+            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+              Muhammad Umer Akram
+            </h3>
+            <p className="text-gray-300 leading-relaxed mb-6 text-lg">
               Quality Assurance Engineer passionate about delivering exceptional software quality 
               through innovative testing solutions and automation frameworks.
             </p>
+            <motion.button 
+              onClick={handleDownloadResume}
+              className="bg-accent hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold transition-all hover-lift flex items-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <i className="fas fa-download mr-2"></i>
+              Download Resume
+            </motion.button>
           </motion.div>
           
           <motion.div
@@ -46,59 +75,75 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-8"
           >
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400">
-              {quickLinks.map((link, index) => (
-                <motion.li
-                  key={link.name}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className="hover:text-white transition-colors"
+            <div>
+              <h4 className="font-semibold mb-4 text-xl text-blue-200">Quick Links</h4>
+              <ul className="space-y-3 text-gray-300">
+                {quickLinks.map((link, index) => (
+                  <motion.li
+                    key={link.name}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
-                    {link.name}
-                  </button>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-gray-400">
-              {services.map((service, index) => (
-                <motion.li
-                  key={service}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
-                  {service}
-                </motion.li>
-              ))}
-            </ul>
+                    <button
+                      onClick={() => handleNavClick(link.href)}
+                      className="hover:text-accent transition-colors flex items-center group"
+                    >
+                      <i className="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                      {link.name}
+                    </button>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4 text-xl text-blue-200">Services</h4>
+              <ul className="space-y-3 text-gray-300">
+                {services.map((service, index) => (
+                  <motion.li
+                    key={service}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="flex items-center"
+                  >
+                    <i className="fas fa-check-circle text-secondary text-sm mr-2"></i>
+                    {service}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
         </div>
         
         <motion.div 
-          className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"
+          className="border-t border-gray-600 border-opacity-30 mt-12 pt-8 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <p>&copy; 2025 Muhammad Umer Akram. All rights reserved. Built with passion for quality.</p>
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-300 mb-4 md:mb-0">
+              &copy; 2025 Muhammad Umer Akram. All rights reserved. Built with passion for quality.
+            </p>
+            <div className="flex items-center space-x-4 text-gray-400">
+              <span className="flex items-center">
+                <i className="fas fa-heart text-red-400 mr-1"></i>
+                Made with love in Pakistan
+              </span>
+              <span className="hidden md:block">|</span>
+              <span className="flex items-center">
+                <i className="fas fa-code text-blue-400 mr-1"></i>
+                React & TypeScript
+              </span>
+            </div>
+          </div>
         </motion.div>
       </div>
     </footer>
