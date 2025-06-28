@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const quickLinks = [
   { name: "About", href: "#about" },
@@ -17,6 +20,8 @@ const services = [
 ];
 
 export default function Footer() {
+  const [isCertificateModalOpen, setIsCertificateModalOpen] = useState(false);
+
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -28,6 +33,16 @@ export default function Footer() {
     const link = document.createElement('a');
     link.href = '/assets/resume.pdf';
     link.download = 'Muhammad_Umer_Akram_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleDownloadCertificate = () => {
+    const link = document.createElement('a');
+    link.href = '/playwright-certificate.pdf';
+    link.download = 'Muhammad_Umer_Akram_Playwright_Certificate.pdf';
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();
@@ -59,15 +74,82 @@ export default function Footer() {
               Quality Assurance Engineer passionate about delivering exceptional software quality 
               through innovative testing solutions and automation frameworks.
             </p>
-            <motion.button 
-              onClick={handleDownloadResume}
-              className="bg-accent hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold transition-all hover-lift flex items-center"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <i className="fas fa-download mr-2"></i>
-              Download Resume
-            </motion.button>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <motion.button 
+                onClick={handleDownloadResume}
+                className="bg-accent hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold transition-all hover-lift flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <i className="fas fa-download mr-2"></i>
+                Download Resume
+              </motion.button>
+              
+              <Dialog open={isCertificateModalOpen} onOpenChange={setIsCertificateModalOpen}>
+                <DialogTrigger asChild>
+                  <motion.button 
+                    className="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all hover-lift flex items-center justify-center"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <i className="fas fa-certificate mr-2"></i>
+                    View Certificate
+                  </motion.button>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle className="text-xl font-bold">Microsoft Learn - Playwright Certificate</DialogTitle>
+                  </DialogHeader>
+                  <div className="mt-4">
+                    <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-lg border border-blue-200">
+                      <div className="text-center mb-4">
+                        <i className="fas fa-certificate text-4xl text-blue-600 mb-3"></i>
+                        <h3 className="text-2xl font-bold text-gray-800">Certificate of Completion</h3>
+                        <p className="text-lg text-gray-600 mt-2">Microsoft Learn Training</p>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-md shadow-sm mb-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">Student Information</h4>
+                        <p><strong>Name:</strong> Muhammad Umer Akram</p>
+                        <p><strong>Username:</strong> MuhammadUmerAkram-2364</p>
+                        <p><strong>Email:</strong> umerchaudhary131@outlook.com</p>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-md shadow-sm mb-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">Course Details</h4>
+                        <p><strong>Module:</strong> Build Your first end-to-end test with Playwright</p>
+                        <p><strong>Duration:</strong> 1 hr 18 min</p>
+                        <p><strong>Completed:</strong> July 19, 2024</p>
+                      </div>
+                      
+                      <div className="bg-white p-4 rounded-md shadow-sm mb-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">Learning Objectives</h4>
+                        <ul className="list-disc list-inside text-gray-700 space-y-1">
+                          <li>Learn how to use Playwright to test web applications</li>
+                          <li>Run tests and view comprehensive test reports</li>
+                          <li>Understand Playwright project structure and configuration</li>
+                          <li>Use Visual Studio Code for testing workflows</li>
+                          <li>Debug tests and record new test scenarios</li>
+                          <li>Create and refine test suites for automation</li>
+                        </ul>
+                      </div>
+                      
+                      <div className="flex justify-center mt-6">
+                        <motion.button 
+                          onClick={handleDownloadCertificate}
+                          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all flex items-center"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <i className="fas fa-download mr-2"></i>
+                          Download Certificate PDF
+                        </motion.button>
+                      </div>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
           </motion.div>
           
           <motion.div
