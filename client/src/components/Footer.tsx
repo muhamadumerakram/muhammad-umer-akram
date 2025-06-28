@@ -52,7 +52,7 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             className="md:col-span-2"
           >
-            <h3 className="text-3xl font-bold mb-3 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+            <h3 className="text-3xl font-bold mb-3 text-white">
               Muhammad Umer Akram
             </h3>
             <p className="text-gray-300 leading-relaxed mb-4 text-lg">
@@ -78,7 +78,7 @@ export default function Footer() {
             className="space-y-8"
           >
             <div>
-              <h4 className="font-semibold mb-4 text-xl text-blue-200">Quick Links</h4>
+              <h4 className="font-semibold mb-4 text-xl text-white">Quick Links</h4>
               <ul className="space-y-3 text-gray-300">
                 {quickLinks.map((link, index) => (
                   <motion.li
@@ -101,7 +101,7 @@ export default function Footer() {
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4 text-xl text-blue-200">Services</h4>
+              <h4 className="font-semibold mb-4 text-xl text-white">Services</h4>
               <ul className="space-y-3 text-gray-300">
                 {services.map((service, index) => (
                   <motion.li
